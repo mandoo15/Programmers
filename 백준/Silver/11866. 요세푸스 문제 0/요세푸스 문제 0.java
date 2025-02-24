@@ -13,7 +13,7 @@ public class Main {
         int k = sc.nextInt();
 
         List<Integer> arr = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {  
+        for (int i = 1; i <= n; i++) {  // 1~N까지 숫자 리스트에 추가
             arr.add(i);
         }
 
@@ -21,10 +21,11 @@ public class Main {
         int index = 0;
 
         while (!arr.isEmpty()) {
-            index = (index + k - 1) % arr.size(); 
-            answer.add(arr.remove(index)); 
+            index = (index + k - 1) % arr.size(); // K번째 요소의 인덱스 찾기
+            answer.add(arr.remove(index)); // K번째 요소 제거하고 결과 리스트에 저장
         }
 
+        // 정답 출력
         System.out.println("<" + String.join(", ", answer.stream().map(String::valueOf).toArray(String[]::new)) + ">");
     }
 }
