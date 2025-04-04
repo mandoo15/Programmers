@@ -1,28 +1,28 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[26]; // alphabet 26
-        String s = sc.next(); // 문자열 s
-
-        for (int i = 0; i < s.length(); i++) { // alphabet 개수 기록
-            if ('A' <= s.charAt(i) && s.charAt(i) <= 'Z') {
-                arr[s.charAt(i) - 'A'] += 1;
-            } else { //if(97 <= s.charAt(i) && s.charAt(i) <= 122)
-                arr[s.charAt(i) - 'a'] += 1;
-            }
+        String word = sc.next();
+        word = word.toUpperCase();
+        int[] alphacnt = new int[26];
+        for(int i=0; i<word.length(); i++) {
+            alphacnt[word.charAt(i)-'A']++;
         }
         int max = -1;
-        char ch = '?';
-        for (int i = 0; i < 26; i++) { // alphabet 개수 비교 -> 최댓값 / 동일값 찾기
-            if (max < arr[i]) {
-                max = arr[i];
-                ch = (char) (i + 65); // 대문자
-            } else if (arr[i] == max) {
-                ch = '?';
+        int maxCount = 0;
+        char answer = '?';
+        for(int i=0; i<26; i++) {
+            if(alphacnt[i]>max) {
+                max = alphacnt[i];
+                answer = (char)(i+'A');
+                maxCount = 1;
+            }
+            else if(alphacnt[i]==max) {
+                maxCount++;
             }
         }
-        System.out.print(ch);
+        if (maxCount > 1) System.out.println("?");
+        else System.out.println(answer);
     }
 }
