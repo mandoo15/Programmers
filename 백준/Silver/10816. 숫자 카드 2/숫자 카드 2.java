@@ -14,15 +14,15 @@ public class Main {
             }
         }
         int m = sc.nextInt(); // M의 수
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder builder = new StringBuilder();
         for(int i=0; i<m; i++){
             int target = sc.nextInt();
             int count = nSet.getOrDefault(target, 0);
             // 여기서 getOfDefault는 map에서 key가 존재하면 해당 값을 가져오고
             // 없으면 지정한 기본값을 리턴해 주는 메서드
             // 현재 여기선 기본값 0 이므로 값이 없으면 0으로 자동리턴
-            buffer.append(count + " ");
+            builder.append(count + " ");
         }
-        System.out.println(buffer);
+        System.out.println(builder);
     }
 }
