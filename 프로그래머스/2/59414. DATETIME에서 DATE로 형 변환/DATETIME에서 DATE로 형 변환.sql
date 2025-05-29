@@ -1,0 +1,4 @@
+-- 코드를 입력하세요 날짜(년-월-일)만 시간 x
+SELECT ANIMAL_ID, NAME, DATE_FORMAT(DATETIME, '%Y-%m-%d')
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID ASC;
